@@ -1,179 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Freight | HJM International</title>
-<meta name="description" content="Air, ocean, and ground freight forwarding, customs brokerage, and supply chain strategy from HJM International.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freight | HJM International</title>
+    <meta name="description" content="End-to-end freight forwarding - air, sea, and ground. Container trucking, customs brokerage, supply chain strategy, and risk management.">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <header class="header header-dark">
+        <nav class="nav container">
+            <a href="index.html" class="nav-logo">HJM <span>International</span></a>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="freight.html" class="nav-link active">Freight</a></li>
+                <li><a href="https://granthillinginfo.wixsite.com/my-site-2" target="_blank" class="nav-link">Warehousing</a></li>
+                <li><a href="industry.html" class="nav-link">Industry</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<header class="site-header">
-  <nav class="nav wrap">
-    <a href="index.html" class="logo">HJM <span>International</span></a>
-    <ul class="nav-links">
-      <li><a href="about.html">About</a></li>
-      <li><a href="freight.html" aria-current="page">Freight</a></li>
-      <li><a href="https://granthillinginfo.wixsite.com/my-site-2" target="_blank" rel="noopener">Warehousing</a></li>
-      <li><a href="industry.html">Industry</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-    <a href="contact.html" class="nav-cta">Get a Quote</a>
-    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
-</header>
+    <main>
+        <section class="page-hero">
+            <div class="page-hero-bg"></div>
+            <div class="container">
+                <span class="page-hero-label">Freight Services</span>
+                <h1>End to End Freight</h1>
+                <p>Move your cargo anywhere, seamlessly. Our freight forwarding network spans air, sea, and ground routes, ensuring each shipment arrives on time and on budget.</p>
+            </div>
+        </section>
 
-<main>
+        <section class="section">
+            <div class="container">
+                <div class="freight-feature fade-in">
+                    <span class="about-label">Core Capability</span>
+                    <h2 class="section-title" style="text-align:left;">Container Trucking</h2>
+                    <p class="freight-desc">Fast, reliable, and nationwide. Our extensive carrier network connects major U.S. ports to every destination. Whether it's drayage from port to warehouse, intermodal transfers, or long-haul full truckload, we coordinate the ground leg with the same precision as the ocean and air segments.</p>
+                </div>
+            </div>
+        </section>
 
-  <div class="wrap page-header">
-    <span class="eyebrow">Freight Forwarding</span>
-    <h1>Move cargo anywhere, seamlessly.</h1>
-    <p class="lede">
-      Our freight forwarding network spans air, sea, and ground routes, ensuring each shipment
-      arrives on time and on budget. Below is a full breakdown of how we move your freight,
-      clear it through customs, and fold it into a broader supply chain strategy.
-    </p>
-    <svg class="route route-strip" viewBox="0 0 1200 60" preserveAspectRatio="none" role="presentation" aria-hidden="true">
-      <path class="route-path is-active" d="M 0 20 C 200 55, 400 5, 600 35 C 800 60, 1000 10, 1200 40" />
-    </svg>
-  </div>
+        <section class="section section-light">
+            <div class="container">
+                <div class="services-header fade-in">
+                    <h2 class="section-title">Our Capabilities</h2>
+                    <p class="section-subtitle">Comprehensive freight solutions covering every aspect of moving goods globally.</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card fade-in" id="customs">
+                        <span class="service-icon">&#128220;</span>
+                        <h3>Customs</h3>
+                        <p>Global trade made effortless. Our experienced brokers handle compliance, tariffs, and documentation across all major ports. We ensure your goods clear customs without delays, penalties, or surprises.</p>
+                    </div>
+                    <div class="service-card fade-in" id="strategy">
+                        <span class="service-icon">&#128202;</span>
+                        <h3>Strategy</h3>
+                        <p>Logistics doesn't stop at delivery &mdash; it starts with strategy. HJM International optimizes your supply chain from sourcing to reverse logistics. We analyze routes, consolidate shipments, and reduce costs without sacrificing speed.</p>
+                    </div>
+                    <div class="service-card fade-in">
+                        <span class="service-icon">&#128172;</span>
+                        <h3>Consulting</h3>
+                        <p>Every business moves differently &mdash; and so should its logistics. Our consulting team designs custom strategies tailored to your product, your market, and your growth targets. From network design to carrier selection, we build the plan.</p>
+                    </div>
+                    <div class="service-card fade-in">
+                        <span class="service-icon">&#128737;</span>
+                        <h3>Risk</h3>
+                        <p>Your cargo's safety is our priority. We build safeguards into every operation with robust insurance coverage, financial vetting of partners, and full regulatory compliance. Protect your shipment from origin to destination.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  <!-- MODES -->
-  <section>
-    <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">Modes of Transport</span>
-        <h2>The right mode for every shipment.</h2>
-      </div>
-      <div class="card-grid" style="grid-template-columns: repeat(3, 1fr);">
-        <div class="card">
-          <span class="icon">✈️</span>
-          <h3>Air Freight</h3>
-          <p>Our fastest option for time-sensitive cargo, with global partner airlines covering major and secondary airports alike.</p>
+        <section class="section">
+            <div class="container">
+                <div class="fade-in">
+                    <h2 class="section-title">Modes of Transport</h2>
+                    <p class="section-subtitle">Flexible routing across every major trade lane.</p>
+                </div>
+                <div class="transport-grid fade-in">
+                    <div class="transport-card">
+                        <div class="transport-icon">&#9992;</div>
+                        <h3>Air Freight</h3>
+                        <p>Time-sensitive shipments handled with priority. Direct and consolidated air cargo services to and from major global hubs. Expedited customs clearance included.</p>
+                    </div>
+                    <div class="transport-card">
+                        <div class="transport-icon">&#128674;</div>
+                        <h3>Ocean Freight</h3>
+                        <p>FCL and LCL services across all major trade lanes. Competitive rates through established carrier relationships. Real-time vessel tracking and port-to-door coordination.</p>
+                    </div>
+                    <div class="transport-card">
+                        <div class="transport-icon">&#128666;</div>
+                        <h3>Ground Transport</h3>
+                        <p>FTL, LTL, and drayage services nationwide. Port-to-warehouse, cross-dock, and final mile delivery. GPS-tracked for full visibility.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="affiliations section section-light">
+            <div class="container">
+                <div class="fade-in" style="text-align:center;">
+                    <h2 class="section-title">Certifications &amp; Affiliations</h2>
+                    <p class="section-subtitle" style="margin-left:auto;margin-right:auto;">Fully licensed and compliant across all modes of transport.</p>
+                    <div class="cert-grid">
+                        <div class="cert-item">FMC</div>
+                        <div class="cert-item">C-TPAT</div>
+                        <div class="cert-item">IATA</div>
+                        <div class="cert-item">NVOCC</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta">
+            <div class="cta-bg"></div>
+            <div class="container">
+                <h2 class="fade-in">Ship With Confidence</h2>
+                <p class="fade-in">Get a freight quote tailored to your cargo, your route, and your timeline.</p>
+                <a href="contact.html" class="btn btn-primary fade-in">Request a Quote</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <div class="footer-logo">HJM <span>International</span></div>
+                    <p>Global logistics and supply chain solutions. Moving freight seamlessly, reliably, and with care.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="freight.html">Freight</a></li>
+                        <li><a href="https://granthillinginfo.wixsite.com/my-site-2" target="_blank">Warehousing</a></li>
+                        <li><a href="industry.html">Industry</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li>main@hjm.com</li>
+                        <li>718.276.5344</li>
+                        <li>625 Avenue T<br>Brooklyn, NY 11223</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 HJM International. All rights reserved.</p>
+            </div>
         </div>
-        <div class="card">
-          <span class="icon">🚢</span>
-          <h3>Ocean Freight</h3>
-          <p>FCL and LCL options for large or shared shipments, with competitive rates across all major trade lanes.</p>
-        </div>
-        <div class="card">
-          <span class="icon">🚛</span>
-          <h3>Ground Freight</h3>
-          <p>Reliable domestic and cross-border trucking, from full truckload to final-mile delivery.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+    </footer>
 
-  <!-- CUSTOMS -->
-  <section id="customs" class="section-alt">
-    <div class="wrap two-col">
-      <div>
-        <span class="eyebrow">Customs Brokerage</span>
-        <h2 style="margin-top:14px; font-size:clamp(24px,3vw,32px);">Global trade made effortless.</h2>
-        <p style="margin-top:16px; color:var(--steel);">
-          Our experienced brokers handle compliance, tariffs, and documentation across all major ports —
-          so your shipment clears customs the first time, every time.
-        </p>
-      </div>
-      <ul class="check-list">
-        <li>Import &amp; export documentation review</li>
-        <li>Tariff classification and duty calculation</li>
-        <li>Compliance with country-specific trade regulations</li>
-        <li>Coordination with customs authorities on your behalf</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- STRATEGY -->
-  <section id="strategy">
-    <div class="wrap two-col">
-      <div>
-        <span class="eyebrow">Strategy &amp; Consulting</span>
-        <h2 style="margin-top:14px; font-size:clamp(24px,3vw,32px);">Logistics doesn't stop at delivery.</h2>
-        <p style="margin-top:16px; color:var(--steel);">
-          It starts with strategy. We optimize your supply chain from sourcing to reverse logistics,
-          identifying where cost, speed, and reliability can all improve at once.
-        </p>
-      </div>
-      <div class="callout">
-        "The best freight plan is the one you never have to think about."
-      </div>
-    </div>
-  </section>
-
-  <!-- PROCESS -->
-  <section class="section-alt">
-    <div class="wrap">
-      <div class="section-head">
-        <span class="eyebrow">How It Works</span>
-        <h2>From quote to delivery.</h2>
-      </div>
-      <div class="step-list">
-        <div class="step">
-          <span class="idx">01</span>
-          <div><h3>Quote &amp; Plan</h3><p>Tell us what you're shipping and where. We map the best mode, route, and timeline for your budget.</p></div>
-        </div>
-        <div class="step">
-          <span class="idx">02</span>
-          <div><h3>Book &amp; Document</h3><p>We handle carrier booking and prepare the documentation your shipment needs to move without delay.</p></div>
-        </div>
-        <div class="step">
-          <span class="idx">03</span>
-          <div><h3>Move &amp; Track</h3><p>Your cargo moves across air, sea, or ground — with visibility into status at every leg.</p></div>
-        </div>
-        <div class="step">
-          <span class="idx">04</span>
-          <div><h3>Clear &amp; Deliver</h3><p>Our brokers clear customs and coordinate final delivery to your door or warehouse.</p></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="cta-band">
-      <h2>Ready to get a freight quote?</h2>
-      <p style="color:#B7C3D1; max-width:32ch;">Tell us what you're moving and where it needs to go.</p>
-      <a href="contact.html" class="btn btn-primary" style="background:var(--amber);">Contact Us</a>
-    </div>
-  </section>
-
-</main>
-
-<footer class="site-footer">
-  <div class="wrap">
-    <div class="footer-grid">
-      <div>
-        <p class="logo">HJM International</p>
-        <p>Global logistics and supply chain solutions. Moving freight seamlessly, reliably, and with care.</p>
-      </div>
-      <div>
-        <p class="footer-head">Navigation</p>
-        <a href="about.html">About</a>
-        <a href="freight.html">Freight</a>
-        <a href="https://granthillinginfo.wixsite.com/my-site-2" target="_blank" rel="noopener">Warehousing</a>
-        <a href="industry.html">Industry</a>
-        <a href="contact.html">Contact</a>
-      </div>
-      <div>
-        <p class="footer-head">Contact</p>
-        <a href="mailto:main@hjm.com">main@hjm.com</a>
-        <a href="tel:7182765344">718.276.5344</a>
-        <a href="#">625 Avenue T, Brooklyn, NY 11223</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© <span data-year>2026</span> HJM International. All rights reserved.</span>
-      <span>Built for hjminternational.us</span>
-    </div>
-  </div>
-</footer>
-
-<script src="js/script.js"></script>
+    <script src="js/main.js"></script>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"d9fc9ac74d334c9cb1248f7eec975229","r":1}' crossorigin="anonymous"></script>
 </body>
 </html>
