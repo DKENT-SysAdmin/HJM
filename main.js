@@ -2,80 +2,117 @@
 // HJM 
 // ===========================================================
 
-document.addEventListener('DOMContentLoaded', () => {
-  initNavToggle();
-  initRouteAnimation();
-  initContactForm();
-  initYear();
-});
+(function () {
+    // --- Mobile nav toggle (fullscreen overlay) ---
+    var toggle = document.querySelector('.nav-toggle');
+    var menu = document.querySelector('.nav-menu');
 
-/* Mobile nav toggle */
-function initNavToggle() {
-  const toggle = document.querySelector('.nav-toggle');
-  const nav = document.querySelector('.nav');
-  if (!toggle || !nav) return;
+    if (toggle && menu) {
+        toggle.addEventListener('click', function () {
+            menu.classList.toggle('open');
+            toggle.classList.toggle('open');
+        });
 
-  toggle.addEventListener('click', () => {
-    const isOpen = nav.classList.toggle('is-open');
-    toggle.setAttribute('aria-expanded', String(isOpen));
-  });
-
-  // Close menu when a nav link is tapped
-  nav.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-      nav.classList.remove('is-open');
-      toggle.setAttribute('aria-expanded', 'false');
-    });
-  });
-}
-
-/* Pause the cargo-dot animation when off-screen to save cycles */
-function initRouteAnimation() {
-  const dots = document.querySelectorAll('.cargo-dot');
-  if (!dots.length || !('IntersectionObserver' in window)) return;
-
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      entry.target.style.animationPlayState = entry.isIntersecting ? 'running' : 'paused';
-    });
-  }, { threshold: 0.1 });
-
-  dots.forEach(dot => observer.observe(dot));
-}
-
-/* Contact form — front-end only placeholder.
-   Wire this up to your form handler / email service before going live. */
-function initContactForm() {
-  const form = document.querySelector('#contact-form');
-  if (!form) return;
-
-  const status = form.querySelector('.form-status');
-
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-
-    const required = form.querySelectorAll('[required]');
-    let valid = true;
-    required.forEach(field => {
-      if (!field.value.trim()) valid = false;
-    });
-
-    if (!valid) {
-      status.textContent = 'Please fill in all required fields before submitting.';
-      status.classList.remove('is-success');
-      return;
+        var links = menu.querySelectorAll('.nav-link');
+        for (var i = 0; i < links.length; i++) {
+            links[i].addEventListener('click', function () {
+                menu.classList.remove('open');
+                toggle.classList.remove('open');
+            });
+        }
     }
 
-    // Placeholder confirmation. Replace with a real submission
-    // (fetch() to a form endpoint, mailto handoff, etc.)
-    status.textContent = 'Thanks — your message has been queued. Our team will follow up shortly.';
-    status.classList.add('is-success');
-    form.reset();
-  });
-}
+    // --- Header: scroll shadow + dark-to-light transition ---
+    var header = document.querySelector('.header');
+    var isHerePage = document.querySelector('.hero') || document.querySelector('.page-hero');
 
-/* Keep the footer year current without a manual edit each January */
-function initYear() {
-  const el = document.querySelector('[data-year]');
-  if (el) el.textContent = new Date().getFullYear();
-}
+    function updateHeader() {
+        if (!header) return;
+        var scrolled = window.scrollY > 60;
+
+        if (scrolled) {
+            header.classList.add('scrolled');
+            header.classList.remove('header-dark');
+        } else {
+            header.classList.remove('scrolled');
+            if (isHerePage) {
+                header.classList.add('header-dark');
+            }
+        }
+    }
+
+    window.addEventListener('scroll', updateHeader, { passive: true });
+    updateHeader();
+
+    // --- Fade-in on scroll (IntersectionObserver) ---
+    var fadeEls = document.querySelectorAll('.fade-in');
+    if (fadeEls.length && 'IntersectionObserver' in window) {
+        var observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.15,
+            rootMargin: '0px 0px -40px 0px'
+        });
+
+        fadeEls.forEach(function (el) {
+            observer.observe(el);
+        });
+    } else {
+        // Fallback: show everything
+        fadeEls.forEach(function (el) {
+            el.classList.add('visible');
+        });
+    }
+
+    // --- Contact form handling via Formspree ---
+    var form = document.getElementById('contact-form');
+    var status = document.getElementById('form-status');
+
+    if (form && status) {
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            var data = new FormData(form);
+            var action = form.getAttribute('action');
+
+            if (action.indexOf('YOUR_FORM_ID') !== -1) {
+                status.textContent = 'Form endpoint not configured. Set up Formspree and update the form action URL.';
+                status.className = 'form-status error';
+                return;
+            }
+
+            status.textContent = 'Sending...';
+            status.className = 'form-status sending';
+
+            fetch(action, {
+                method: 'POST',
+                body: data,
+                headers: { 'Accept': 'application/json' }
+            }).then(function (response) {
+                if (response.ok) {
+                    status.textContent = 'Message sent. We\'ll get back to you shortly.';
+                    status.className = 'form-status success';
+                    form.reset();
+                } else {
+                    return response.json().then(function (json) {
+                        if (json.errors) {
+                            var msgs = json.errors.map(function (err) { return err.message; });
+                            status.textContent = msgs.join(', ');
+                        } else {
+                            status.textContent = 'Something went wrong. Please try again.';
+                        }
+                        status.className = 'form-status error';
+                    });
+                }
+            }).catch(function () {
+                status.textContent = 'Network error. Check your connection and try again.';
+                status.className = 'form-status error';
+            });
+        });
+    }
+})();
